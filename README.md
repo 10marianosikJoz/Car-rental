@@ -18,48 +18,48 @@ Each project starts with a problem, from which we get a set of requirements.
 ## Car Rental Management System
 
 The Car Rental Management System is a software solution designed to streamline the operations of a car rental business.
-This system manages the core business processes including vehicle inventory management, rental pricing calculations, and customer loyalty programs through a bonus points system.
+This system manages the core business processes including car inventory management, rental pricing calculations, and customer loyalty programs through a bonus points system.
 
 ## Functional Requirements
-* Vehicle Inventory Management
+* Car Inventory Management
 * Rental Price Calculation
 * Customer Bonus Points Management
 
-## Vehicle Inventory Management
-   Maintain a comprehensive database of available vehicles including car details (make, model, year, category), track real-time availability status, and manage vehicle condition and maintenance records.
+## Car Inventory Management
+   Maintain a comprehensive database of available cars including car details (make, model, year, category), track real-time availability status, and manage car condition and maintenance records.
 
 ## Rental Price Calculation
    Price
-   The price of rentals is based on type of vehicle rented and how many days the vehicle is rented for. The customers specify rental duration when booking and pay up front. If the vehicle is returned late, then rent for the extra days is charged when returning.
+   The price of rentals is based on type of car rented and how many days the car is rented for. The customers specify rental duration when booking and pay up front. If the car is returned late, then rent for the extra days is charged when returning.
 
-   Vehicle types
-   The rental company has three types of vehicles:
+   Car types
+   The rental company has three types of cars:
 
 - ✅ Premium cars – Price is 300 EURO times number of days rented.
-- ✅ Standard cars – Price is 100 EURO for the first 3 days and then 100 EURO times the number of days over 3.
-- ✅ Economy cars - Price is 100 EURO for the first 5 days and then 60 EURO times the number of days over 5.
+- ✅ Standard cars – Price is 300 EURO for the first 5 days and then 100 EURO times the number of days over 3.
+- ✅ Economy cars - Price is 150 EURO for the first 5 days and then 60 EURO times the number of days over 5.
 
 The program should expose a REST-ish HTTP API. The API should (at least) expose operations for:
 
-Renting one or several vehicles and calculating the price.
-Returning vehicles and calculating possible surcharges.
+Renting one or several cars and calculating the price.
+Returning cars and calculating possible surcharges.
 
 **Examples of price calculations:**
 - ✅ Tesla Model S (Premium car) 1 day: 300 EURO
 - ✅ BMW 3 Series (Standard rental) 5 days: 300 EURO
-- ✅ Toyota Corolla (Standard rental) 2 days: 100 EURO
+- ✅ Toyota Corolla (Standard rental) 2 days: 120 EURO
 - ✅ Volkswagen Polo (Economy car) 7 days: 210 EURO
 
 **Total price: 920 EURO**
 
-**When returning vehicles late:**
+**When returning cars late:**
 - ✅ Tesla Model S (Premium car) 2 extra days: 600 EURO
 - ✅ BMW 3 Series (Standard rental) 1 extra day: 100 EURO
 
 **Total late charge: 700 EURO**
 
 ## Customer Bonus Points Management
-   Customers get bonus points when renting vehicles. A premium car rental gives 2 points and other vehicle types give one point per rental (regardless of the time rented).
+   Customers get bonus points when renting cars. A premium car rental gives 2 points and other car types give one point per rental (regardless of the time rented).
    
 # Acceptance specifications
 
@@ -74,7 +74,7 @@ If this specification is implemented, our project brings money.
     As a customer of a car rental service I want to:
         given: 'inventory has an economy car "Toyota Corolla" and a premium car "BMW X5"'
 
-        when: 'I go to /vehicles'
+        when: 'I go to /cars'
         then: 'I see both cars available'
 
         when: 'I go to /loyalty-points'
@@ -84,7 +84,7 @@ If this specification is implemented, our project brings money.
         then: 'I can see it will cost me 1200 EURO for BMW X5 and 500 EURO for Toyota Corolla'
 
         when: 'I post to /rent with both cars for 3 days'
-        then: 'I have rented both vehicles'
+        then: 'I have rented both cars'
 
         when: 'I go to /rentals'
         then: 'I see both cars are currently rented'
@@ -102,10 +102,10 @@ If this specification is implemented, our project brings money.
 
 High level design of modules:
 
-Vehicles
-* providing a list of available vehicles
-* adding a new vehicle
-* removing a vehicle
+Cars
+* providing a list of available cars
+* adding a new car
+* removing a car
 
 Loyalty Points
 * providing a list of loyalty points
@@ -118,7 +118,7 @@ Rentals
 * calculating the price of a rental
 
 Returns
-* returning a vehicle
+* returning a car
 
 Users
 * providing a list of users
