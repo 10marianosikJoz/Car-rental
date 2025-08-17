@@ -11,6 +11,12 @@ class CarDataProvider {
                               int productionYear,
                               Category category) {
 
-        return new CardDto(id, make, model, productionYear, category)
+        return CardDto.builder()
+                .id(id)
+                .make(make)
+                .model(model)
+                .productionYear(productionYear)
+                .category(category)
+                .build()
     }
 }

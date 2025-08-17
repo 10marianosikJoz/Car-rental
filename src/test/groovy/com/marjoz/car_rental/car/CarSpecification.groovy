@@ -9,6 +9,7 @@ class CarSpecification extends Specification {
 
     private final CarFacade carFacade = new CarModuleConfiguration().carFacade()
     private final CarInMemoryRepository carInMemoryRepository = new CarInMemoryRepository()
+
     private final CardDto tesla = CarDataProvider.provideCar(1,"Tesla","Tesla Model S", 2025, Category.PREMIUM)
     private final CardDto bmw = CarDataProvider.provideCar(2, "BMW", "BMW X5", 2020, Category.STANDARD)
 
